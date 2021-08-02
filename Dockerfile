@@ -21,6 +21,8 @@ COPY . .
 
 RUN dpkg -i grafana_8.0.6_amd64.deb
 
+RUN rm -f grafana_8.0.6_amd64.deb
+
 
 
 EXPOSE 3000
