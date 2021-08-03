@@ -48,10 +48,12 @@ echo "        target_label: instance" >> prometheus.yml
 echo "      - target_label: __address__" >> prometheus.yml
 echo "        replacement: 0.0.0.0:9115 # The blackbox exporter." >> prometheus.yml
 
-service grafana-server start
-cd prometheus/
-chmod +x prometheus
+
+cd /
+./run.sh &
+
+cd /app/prometheus
 ./prometheus & 
-cd ..
-cd blackbox_exporter/
+
+cd /app/blackbox_exporter
 ./blackbox_exporter
