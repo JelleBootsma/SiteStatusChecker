@@ -1,20 +1,5 @@
 FROM grafana/grafana:8.0.6
 
-##RUN apt-get update
-
-##RUN apt-get upgrade
-
-##RUN apt-get install -y adduser libfontconfig1 wget
-
-
-##RUN mkdir /usr/share/ca-certificates/letsencrypt.org
-
-##WORKDIR /usr/share/ca-certificates/letsencrypt.org
-
-##RUN wget https://letsencrypt.org/certs/isrgrootx1.pem
-
-##RUN update-ca-certificates
-
 USER 0
 
 WORKDIR /app
