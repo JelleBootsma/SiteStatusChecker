@@ -19,7 +19,20 @@ Using the Site Status Checker is easy, and is done through a docker container
 
 After adding the datasource, a dashboard is still required.\
 I suggest creating a new dashboard, with a single fullscreen panel of the `stat` type.\
-Then you should set the query to `probe_success`,   WORK IN PROGRESS
+Then you should set the query to `probe_success`, which should result in the sites set up in the `URLS` environment variable, showing up in the panel. Here a 1 indicates a successful connection, and a zero indicating a failure to connect. \
+When looking in the 'Stat styles' submenu in the options, you can change the colour mode to 'Background', so that the entire rectangle belonging to a site indicates the status.\
+Under 'Thresholds', you should set the upper threshold to 1, and changes its colour to green, while changing the base colour to red.\
+
+Finally, under the 'Transform' tab, you should add two transformations. First a 'Labels to fields' transformation, with the value set to `instance`.\
+The other transformation is a Rename by regex. Here you can add regex to transform the text shown with the status.
+
+Regex to select subdomain: Match : `.*//([^\.]+)\..+`; Replace : `$1`   (e.g. https://hub.docker.com -> hub)\
+Regex to remove http or https: Match : `.*//(.+)`; Replace : `$1`       (e.g. https://hub.docker.com -> hub.docker.com)
+
+
+## Further steps:
+Grafana is a very powerful monitoring system, and there are too many options to go over in a short README. One of the useful systems which I quickly want to mention is alerts, as getting notified when one of your sites goes down can be extremely useful. [Read more on the grafana website](https://grafana.com/docs/grafana/latest/alerting/).\
+As this container is based on the Grafana-8.0.6 container, guides for that container should translate 1-to-1. If you encounter a situation where this is not the case, you can always open an [issue](https://github.com/JelleBootsma/SiteStatusChecker/issues)
 
 ## Note:
 After startup, it could take a short while before grafana starts recieving data from prometheus. This is normal, and should resolve itself after about a minute.
