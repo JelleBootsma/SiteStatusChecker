@@ -21,7 +21,7 @@ After adding the datasource, a dashboard is still required.\
 I suggest creating a new dashboard, with a single fullscreen panel of the `stat` type.\
 Then you should set the query to `probe_success`, which should result in the sites set up in the `URLS` environment variable, showing up in the panel. Here a 1 indicates a successful connection, and a zero indicating a failure to connect. \
 When looking in the 'Stat styles' submenu in the options, you can change the colour mode to 'Background', so that the entire rectangle belonging to a site indicates the status.\
-Under 'Thresholds', you should set the upper threshold to 1, and changes its colour to green, while changing the base colour to red.\
+Under 'Thresholds', you should set the upper threshold to 1, and change its colour to green, while changing the base colour to red.
 
 Finally, under the 'Transform' tab, you should add two transformations. First a 'Labels to fields' transformation, with the value set to `instance`.\
 The other transformation is a Rename by regex. Here you can add regex to transform the text shown with the status.
