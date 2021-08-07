@@ -9,7 +9,7 @@ This was the setup I had experience with, and though this would be the perfect r
 Using the Site Status Checker is easy, and is done through a docker container
 
 1. Install Docker
-2. Create a persistant volume (here we will call it grafana-var)
+2. Create a persistent volume (here we will call it grafana-var)
 3. Run the Docker image using: `docker run -v grafana-var:/var/lib/grafana -p 3000:3000/tcp --env URLS="https://github.com/;https://prometheus.io" jellebootsma/sitestatuschecker`
 4. You can now access the grafana dashboard through http://localhost:3000. This can then be setup as desired. Settings will persist, as these are stored in /var/lib/grafana
 5. To read the data from grafana, you need to add a prometheus datasource with the address localhost:9090.
@@ -35,4 +35,4 @@ Grafana is a very powerful monitoring system, and there are too many options to 
 As this container is based on the Grafana-8.0.6 container, guides for that container should translate 1-to-1. If you encounter a situation where this is not the case, you can always open an [issue](https://github.com/JelleBootsma/SiteStatusChecker/issues)
 
 ## Note:
-After startup, it could take a short while before grafana starts recieving data from prometheus. This is normal, and should resolve itself after about a minute.
+After startup, it could take a short while before grafana starts receiving data from prometheus. This is normal, and should resolve itself after about a minute.
